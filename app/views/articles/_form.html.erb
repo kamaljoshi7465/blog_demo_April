@@ -1,0 +1,17 @@
+<%= form_with model: @article do |f| %>
+  <div>
+    <%= f.label :title %> <br>
+    <%= f.text_field :title, placeholder: "Enter Title" %> <br>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    <%= f.label :body %> <br>
+    <%= f.text_area :body, placeholder: "Enter Body"  %><br>
+    <% @article.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit "Submit", disable_with: 'Submiting...' %>
+  </div>
+<% end %>
